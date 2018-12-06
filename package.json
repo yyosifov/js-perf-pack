@@ -1,0 +1,27 @@
+{
+  "name": "js-perf-pack",
+  "version": "1.0.0",
+  "description": "Library with JS performance optimized functions",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyosifov/js-perf-pack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yyosifov/js-perf-pack/issues"
+  },
+  "homepage": "https://github.com/yyosifov/js-perf-pack#readme"
+}
