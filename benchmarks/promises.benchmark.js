@@ -1,10 +1,10 @@
 const _ = require('lodash');
 
-function sleep(ms) {
+async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function memoryIntensivePromise() {
+async function getMemoryIntensivePromise() {
     return new Promise(resolve => {
         const items = [];
         _.each(_.range(0, 1000, 1), number => {
@@ -14,13 +14,25 @@ function memoryIntensivePromise() {
             })
         })
 
-        await sleep(100);
-
-        resolve();
+        sleep(100).then(() => {
+            resolve(items);
+        });
     });
 }
 
-/*
-async function testPromiseAll() {
+async function testPromiseAllMemoryIntensive() {
+    const testItemsCount = 1;
+    const testItems = _.range(0, testItemsCount, 1);
+
+    let allItems = [];
+    await Promise.all(_.map(testItems, async (ti) => {
+        const items = await getMemoryIntensivePromise(ti);
+        allItems = [...allItems, ...items];
+    }));
+
+    console.log(`allItems length = ${allItems.length}`);
 }
-*/
+
+(async function() {
+    await testPromiseAllMemoryIntensive()
+})();

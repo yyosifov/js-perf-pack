@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Library with JS performance optimized functions",
   "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*Spec.js --reporter spec"
+  },
   "directories": {
     "lib": "lib",
     "test": "tests"
@@ -10,9 +13,9 @@
   "dependencies": {
     "lodash": "^4.17.11"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "expect": "^23.6.0",
+    "mocha": "^5.2.0"
   },
   "repository": {
     "type": "git",
